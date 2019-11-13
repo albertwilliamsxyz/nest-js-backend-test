@@ -1,0 +1,23 @@
+service:
+  name: cmk-50
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+functions:
+  rest:
+    name: rest
+    handler: src/adapters/rest/handler.handler
+    events:
+      - http:
+          path: test/{propertyID?}
+          method: any
+          cors: true
+
+custom:
+  webpackIncludeModules: true

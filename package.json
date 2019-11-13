@@ -1,0 +1,77 @@
+{
+  "name": "base-project",
+  "version": "0.0.1",
+  "description": "Base project for develop Lambda with NestJS and Graphql",
+  "author": "DreamCode",
+  "license": "No license granted",
+  "scripts": {
+    "remove": "export SLS_DEBUG=* && serverless remove --stage dev",
+    "deploy:offline": "export SLS_DEBUG=* && serverless offline --stage dev",
+    "deploy:dev": "export SLS_DEBUG=* && serverless deploy --force --verbose",
+    "build": "tsc -p tsconfig.build.json",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts"
+  },
+  "resolutions": {
+    "graceful-fs": "4.2.2"
+  },
+  "dependencies": {
+    "@nestjs/common": "^6.0.0",
+    "@nestjs/core": "^6.0.0",
+    "@nestjs/graphql": "^6.4.2",
+    "@nestjs/microservices": "^6.8.2",
+    "@nestjs/platform-express": "^6.0.0",
+    "@nestjs/websockets": "^6.8.2",
+    "apollo-server-express": "^2.7.0",
+    "aws-serverless-express": "^3.3.6",
+    "graphql": "^14.4.2",
+    "graphql-tools": "^4.0.5",
+    "kafkajs": "^1.11.0",
+    "nanoid": "^2.0.3",
+    "reflect-metadata": "^0.1.12",
+    "serverless-http": "^2.0.2",
+    "serverless-offline": "^5.8.0",
+    "serverless-plugin-typescript-express": "^1.0.8",
+    "serverless-webpack": "^5.3.1",
+    "ts-loader": "^6.0.4",
+    "type-graphql": "^0.17.4",
+    "webpack": "^4.36.1",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "6.0.0",
+    "@types/express": "^4.16.0",
+    "@types/jest": "^23.3.13",
+    "@types/node": "^10.12.18",
+    "@types/supertest": "^2.0.7",
+    "concurrently": "^4.1.0",
+    "copy-webpack-plugin": "^5.0.4",
+    "dotenv": "^8.1.0",
+    "jest": "^24.8.0",
+    "nodemon": "^1.18.9",
+    "prettier": "^1.15.3",
+    "serverless-domain-manager": "^3.3.0",
+    "serverless-plugin-warmup": "^4.7.0-rc.1",
+    "ts-jest": "24.0.2",
+    "ts-mockito": "^2.4.2",
+    "ts-node": "8.1.0",
+    "tsconfig-paths": "3.8.0",
+    "tslint": "5.16.0",
+    "typescript": "3.4.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
